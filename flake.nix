@@ -1,35 +1,42 @@
 {
-  description = "sofle ZMK config";
-
   inputs = {
-    zmk-config-nix.url = github:Tomaszal/zmk-config-nix;
-    nixpkgs.follows = "zmk-config-nix/nixpkgs";
-    flake-utils.follows = "zmk-config-nix/flake-utils";
-    rnix-lsp.follows = "zmk-config-nix/rnix-lsp";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    zmk-nix = {
+      url = "github:lilyinstarlight/zmk-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, rnix-lsp, zmk-config-nix }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; }; in
-      with pkgs;
-      {
-        devShells.default = mkShell {
-          nativeBuildInputs = [
-            rnix-lsp.defaultPackage.${system}
-            cocogitto
-          ];
-        };
+  outputs = { self, nixpkgs, zmk-nix }: let
+    forAllSystems = nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
+  in {
+    packages = forAllSystems (system: rec {
+      default = firmware;
 
-        packages.sofle_left = zmk-config-nix.packages.${system}.zmkBinary {
-          config = ./config;
-          board = "nice_nano_v2";
-          shield = "splitkb_aurora_sofle_left";
+      firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
+        name = "firmware";
+
+        src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
+
+        board = "nice_nano_v2";
+        shield = "sofle_%PART%";
+
+        zephyrDepsHash = "sha256-UWkGqWTnYq0iUv8KogYLz2A4oV0WgTK/3WKhL52fZyM=";
+
+        meta = {
+          description = "ZMK firmware";
+          license = nixpkgs.lib.licenses.mit;
+          platforms = nixpkgs.lib.platforms.all;
         };
-        packages.sofle_right = zmk-config-nix.packages.${system}.zmkBinary {
-          config = ./config;
-          board = "nice_nano_v2";
-          shield = "splitkb_aurora_sofle_right";
-        };
-      }
-    );
+      };
+
+      flash = zmk-nix.packages.${system}.flash.override { inherit firmware; };
+      update = zmk-nix.packages.${system}.update;
+    });
+
+    devShells = forAllSystems (system: {
+      default = zmk-nix.devShells.${system}.default;
+    });
+  };
 }
