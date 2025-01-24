@@ -83,7 +83,7 @@
 &bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                      &rgb_ug RGB_OFF  &rgb_ug RGB_TOG  &rgb_ug RGB_ON                    &trans                             &kp PRINTSCREEN                   &kp C_VOL_UP
 &bt BT_PRV  &bt BT_NXT        &none              &none              &sys_reset    &none                             &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI                   &rgb_ug RGB_SPI                    &none                             &kp C_VOLUME_DOWN
 &none       &none             &none              &none              &none         &none                             &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD                   &rgb_ug RGB_SPD                    &none                             &kp K_MUTE
-&trans      &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &none         &bt BT_CLR_ALL  &none     &none   &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &rgb_ug RGB_COLOR_HSB(212,67,43)  &rgb_ug RGB_COLOR_HSB(115,100,42)  &rgb_ug RGB_COLOR_HSB(27,100,49)  &none
+&trans      &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &none         &bt BT_CLR_ALL  &none     &none   &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &rgb_ug RGB_COLOR_HSB(205,75,67)  &rgb_ug RGB_COLOR_HSB(115,100,42)  &rgb_ug RGB_COLOR_HSB(27,100,49)  &none
                               &trans             &trans             &trans        &trans          &trans    &trans  &trans           &trans           &trans                            &trans
             >;
 
