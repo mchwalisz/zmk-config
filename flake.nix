@@ -21,6 +21,7 @@
 
         board = "nice_nano_v2";
         shield = "splitkb_aurora_sofle_%PART%";
+        # shield = "splitkb_aurora_sofle_%PART% nice_view_adapter nice_view";
 
         zephyrDepsHash = "sha256-yRzN+df/kzHEOWTiQLRLsPNRBDM4fV5qmLa6SevYKxc=";
 
