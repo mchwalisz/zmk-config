@@ -22,7 +22,7 @@
         board = "nice_nano_v2";
         shield = "splitkb_aurora_sofle_%PART%";
 
-        zephyrDepsHash = "sha256-1SPNOiowdGSLrSLnaElACu5/J84KcbTmIgFd9sE9W2s=";
+        zephyrDepsHash = "sha256-yRzN+df/kzHEOWTiQLRLsPNRBDM4fV5qmLa6SevYKxc=";
 
         meta = {
           description = "ZMK firmware";
@@ -33,6 +33,7 @@
 
       flash = zmk-nix.packages.${system}.flash.override { inherit firmware; };
       update = zmk-nix.packages.${system}.update;
+
     });
 
     devShells = forAllSystems (system: {
