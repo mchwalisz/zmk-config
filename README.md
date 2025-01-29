@@ -13,3 +13,13 @@
 ## Relevant sources
 
 - Design files from [splitkb aurora](https://github.com/splitkb/aurora/tree/master/Aurora%20Sofle%20v2)
+
+
+## Changelog
+
+### 2024-01-29
+
+- soldering and first build
+- initial keymap tuning
+- learning the board and first time use
+- starting point 12wpm on monkeytype
