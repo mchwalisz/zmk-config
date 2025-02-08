@@ -17,6 +17,9 @@
 
 ## Changelog
 
+- added left encoder
+  - https://github.com/zmkfirmware/zmk/issues/72#issuecomment-2082651732 for mouse scroll emulation
+
 ### 2024-01-29
 
 - soldering and first build
