@@ -23,7 +23,7 @@
         shield = "splitkb_aurora_sofle_%PART%";
         # shield = "splitkb_aurora_sofle_%PART% nice_view_adapter nice_view";
 
-        zephyrDepsHash = "sha256-VlNiXOv+PIk47gFxnpWM0tJQ/Kqb6NW0L6hgCFonCts=";
+        zephyrDepsHash = "sha256-1Mog6p22qw1Ld6D/GR02GHf4gMh6GEL8GaBsNuzlm/Y=";
 
         meta = {
           description = "ZMK firmware";
