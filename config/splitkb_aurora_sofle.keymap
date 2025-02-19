@@ -37,6 +37,12 @@ nice_view_spi: &spi0 {
             tap-ms = <20>;
         };
 
+        tdcw: tap_dance_caps_word {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LEFT_SHIFT>, <&kp LEFT_SHIFT>, <&caps_word>;
+        };
     };
 
     keymap {
@@ -53,8 +59,8 @@ nice_view_spi: &spi0 {
             bindings = <
 &kp ESC           &kp N1  &kp N2     &kp N3    &kp N4    &kp N5                        &kp N6  &kp N7    &kp N8     &kp N9    &kp N0    &kp GRAVE
 &kp TAB           &kp Q   &kp W      &kp E     &kp R     &kp T                         &kp Y   &kp U     &kp I      &kp O     &kp P     &kp MINUS
-&kp LEFT_SHIFT    &kp A   &kp S      &kp D     &kp F     &kp G                         &kp H   &kp J     &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LEFT_CONTROL  &kp Z   &kp X      &kp C     &kp V     &kp B   &kp K_MUTE   &kp F20 ` &kp N   &kp M     &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+&tdcw    &kp A   &kp S      &kp D     &kp F     &kp G                         &kp H   &kp J     &kp K      &kp L     &kp SEMI  &kp SQT
+&kp LEFT_CONTROL  &kp Z   &kp X      &kp C     &kp V     &kp B   &kp K_MUTE   &kp F20  &kp N   &kp M     &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
                           &kp LCTRL  &kp LALT  &kp LGUI  &mo 1   &kp SPACE    &kp RET  &mo 2   &kp BSPC  &kp DEL    &kp RALT
             >;
 
