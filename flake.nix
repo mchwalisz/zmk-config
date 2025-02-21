@@ -10,6 +10,8 @@
 
   outputs = { self, nixpkgs, zmk-nix }: let
     forAllSystems = nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
+    zephyrDepsHash = "sha256-VTTvPN35QCspzbOcYowgoe4tnR2bPQldKM2gk/N6yfs=";
+
   in {
     packages = forAllSystems (system: rec {
       default = firmware;
@@ -23,7 +25,7 @@
         # shield = "splitkb_aurora_sofle_%PART%";
         shield = "splitkb_aurora_sofle_%PART% nice_view_adapter nice_view";
 
-        zephyrDepsHash = "sha256-1Mog6p22qw1Ld6D/GR02GHf4gMh6GEL8GaBsNuzlm/Y=";
+        inherit zephyrDepsHash;
 
         meta = {
           description = "ZMK firmware";
@@ -32,7 +34,25 @@
         };
       };
 
+      reset_firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
+        name = "reset_firmware";
+
+        src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
+
+        board = "nice_nano_v2";
+        shield = "settings_reset";
+
+        inherit zephyrDepsHash;
+
+        meta = {
+          description = "ZMK reset firmware";
+          license = nixpkgs.lib.licenses.mit;
+          platforms = nixpkgs.lib.platforms.all;
+        };
+      };
+
       flash = zmk-nix.packages.${system}.flash.override { inherit firmware; };
+      reset_flash = zmk-nix.packages.${system}.flash.override { firmware = reset_firmware; };
       update = zmk-nix.packages.${system}.update;
 
     });
