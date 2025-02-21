@@ -64,7 +64,7 @@ nice_view_spi: &spi0 {
                           &kp LCTRL  &kp LALT  &kp LGUI  &mo 1   &kp SPACE    &kp RET  &mo 2   &kp BSPC  &kp DEL    &kp RALT
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &scroll_up_down>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &scroll_up_down>;
         };
 
         lower_layer {
@@ -83,7 +83,7 @@ nice_view_spi: &spi0 {
                    &trans    &trans         &trans            &trans     &kp ENTER    &kp SPACE  &trans     &trans     &trans    &trans
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         raise_layer {
@@ -114,7 +114,7 @@ nice_view_spi: &spi0 {
                               &trans             &trans             &trans        &trans          &trans    &trans  &trans           &trans           &trans                            &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
     };
 
