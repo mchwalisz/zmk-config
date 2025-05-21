@@ -22,8 +22,8 @@
         src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
 
         board = "nice_nano_v2";
-        # shield = "my_sofle_%PART%";
-        shield = "my_sofle_%PART% nice_view_adapter nice_view";
+        # shield = "splitkb_aurora_sofle_%PART%";
+        shield = "splitkb_aurora_sofle_%PART% nice_view_adapter nice_view";
 
         inherit zephyrDepsHash;
 
