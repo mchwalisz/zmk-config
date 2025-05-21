@@ -10,7 +10,7 @@
 
   outputs = { self, nixpkgs, zmk-nix }: let
     forAllSystems = nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
-    zephyrDepsHash = "sha256-pnOOC6NDa1VPhW0zB3+B1egtsYlHJ6hc+2FE4YDYVNE=";
+    zephyrDepsHash = "sha256-reAWLQgGuZQiCiN5yGoVlbN6CT5yxl7lEk2/HbvL2x4=";
 
   in {
     packages = forAllSystems (system: rec {
