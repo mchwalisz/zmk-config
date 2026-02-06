@@ -13,7 +13,7 @@
 ## Relevant sources
 
 - Design files from [splitkb aurora](https://github.com/splitkb/aurora/tree/master/Aurora%20Sofle%20v2)
-
+- [zmk-nix](https://github.com/lilyinstarlight/zmk-nix)
 
 ## Changelog
 
