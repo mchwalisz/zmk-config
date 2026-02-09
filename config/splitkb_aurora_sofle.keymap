@@ -72,11 +72,11 @@ nice_view_spi: &spi0 { cs-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>; };
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&trans  &kp F1     &kp F2    &kp F3     &kp F4     &kp F5                             &kp F6             &kp F7         &kp F8         &kp F9  &kp F10  &kp F11
-&trans  &kp GRAVE  &kp UP    &none      &mkp MB4   &mkp MB5                           &kp LEFT_BRACKET   &kp INSERT     &kp PAGE_UP    &none   &none    &kp F12
-&trans  &kp LEFT   &kp DOWN  &kp RIGHT  &mkp LCLK  &mkp RCLK                          &kp RIGHT_BRACKET  &kp DEL        &kp PAGE_DOWN  &none   &none    &none
-&trans  &none      &none     &mkp MCLK  &none      &none      &trans       &trans     &kp PIPE           &kp BACKSLASH  &none          &none   &none    &trans
-                   &trans    &trans     &trans     &trans     &kp ENTER    &kp SPACE  &trans             &trans         &trans         &trans
+&trans  &kp F1      &kp F2     &kp F3      &kp F4       &kp F5                             &kp F6             &kp F7         &kp F8         &kp F9  &kp F10  &kp F11
+&trans  &kp GRAVE   &kp UP     &none       &mkp MB4     &mkp MB5                           &kp LEFT_BRACKET   &kp INSERT     &kp PAGE_UP    &none   &none    &kp F12
+&trans  &kp LEFT    &kp DOWN   &kp RIGHT   &mkp LCLK    &mkp RCLK                          &kp RIGHT_BRACKET  &kp DEL        &kp PAGE_DOWN  &none   &none    &none
+&trans  &kp K_UNDO  &kp K_CUT  &kp K_COPY  &kp K_PASTE  &mkp MCLK  &trans       &trans     &kp PIPE           &kp BACKSLASH  &none          &none   &none    &trans
+                    &trans     &trans      &trans       &trans     &kp ENTER    &kp SPACE  &trans             &trans         &trans         &trans
             >;
 
             sensor-bindings = <&scroll_up_down &inc_dec_kp C_VOL_DN C_VOL_UP>;
