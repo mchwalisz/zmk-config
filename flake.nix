@@ -10,7 +10,7 @@
 
   outputs = { self, nixpkgs, zmk-nix }: let
     forAllSystems = nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
-    zephyrDepsHash = "sha256-vJA/zXN+Tv9690h8cYyIEQWZ8a2ABCpLhhKpnaqk5KM=";
+    zephyrDepsHash = "sha256-mUJpGWlU+rGbcWtKs/SuombCJ3RcIDMTiuMicwLX1D4=";
 
   in {
     packages = forAllSystems (system: rec {
@@ -21,7 +21,7 @@
 
         src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
 
-        board = "nice_nano";
+        board = "nice_nano@2.0.0";
         # shield = "splitkb_aurora_sofle_%PART%";
         shield = "splitkb_aurora_sofle_%PART% nice_view_adapter nice_view";
 
@@ -39,7 +39,7 @@
 
         src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
 
-        board = "nice_nano";
+        board = "nice_nano@2.0.0";
         shield = "settings_reset";
 
         inherit zephyrDepsHash;
