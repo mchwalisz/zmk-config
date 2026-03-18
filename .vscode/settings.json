@@ -1,0 +1,25 @@
+{
+    "python.autoComplete.extraPaths": [
+        "${workspaceFolder}/sources/poky/bitbake/lib",
+        "${workspaceFolder}/sources/poky/meta/lib"
+    ],
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/sources/poky/bitbake/lib",
+        "${workspaceFolder}/sources/poky/meta/lib"
+    ],
+    "files.associations": {
+        "flake.lock": "json",
+        "wscript": "python",
+        "fw_env.config": "raw",
+        "*.inventory": "ini",
+        "*.toml": "toml",
+        "*.service.jn2": "jinja-systemd",
+        "*.conf.jn2": "jinja-properties",
+        "**/i3/config": "i3",
+        "**/.i3/config": "i3",
+        "*.conf": "bitbake",
+        "*.network.jn2": "jinja-systemd",
+        "*.jinja2": "jinja",
+        "*.inc": "bitbake"
+    }
+}
